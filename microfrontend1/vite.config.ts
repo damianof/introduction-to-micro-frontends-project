@@ -1,0 +1,30 @@
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path'
+
+// This is a module app (to be consumed by the host app)
+// This microfrontend uses the React framework
+
+const port = 5001
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  server: {
+    port: port,
+  },
+  plugins: [react()],
+  build: {
+    outDir: './microfrontend1',
+    cssCodeSplit: false,
+    sourcemap: false,
+    minify: false,
+    rollupOptions: {
+      input: path.resolve(__dirname, `src/index.tsx`),
+      output: {
+        entryFileNames: `assets/[name].js`,
+        chunkFileNames: `assets/[name].js`,
+        assetFileNames: `assets/[name].[ext]`,
+      },
+    },
+  },
+})

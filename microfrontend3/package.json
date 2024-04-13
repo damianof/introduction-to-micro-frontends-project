@@ -1,0 +1,28 @@
+{
+  "name": "microfrontend3",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "start": "npm run dev",
+    "build-watch": "vue-tsc && vite build --watch",
+    "watch-and-run": "concurrently \"npm start\" \"npm run build-watch\"",
+    "clean": "rm -rf microfrontend3"
+  },
+  "dependencies": {
+    "vue": "^3.5.29"
+  },
+  "devDependencies": {
+    "@builtwithjavascript/debounce": "^1.0.5",
+    "@builtwithjavascript/vue-file-upload-tailwind": "^1.0.4",
+    "@types/node": "^25.3.2",
+    "@vitejs/plugin-vue": "^6.0.4",
+    "postbox": "file:../postbox",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1",
+    "vue-tsc": "^3.2.5"
+  }
+}
