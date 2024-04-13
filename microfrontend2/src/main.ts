@@ -1,8 +1,28 @@
 import './app.css'
 import App from './App.svelte'
 
-const app = new App({
-  target: document.getElementById('app')!,
-})
+// comment this out:
+// const app = new App({
+//   target: document.getElementById('app')!,
+// })
+// export default app
 
-export default app
+/**
+ * @description
+ * Ensure each micro-frontend exposes the necessary methods (mount, unmount) globally 
+ * to be compatible with the loader. 
+ * This can be done within the entry point of each micro-frontend.
+ */
+// @ts-ignore
+window.microfrontend2 = {
+  mount(containerId: string) {
+    console.log('microfrontend2 (svelte): mount', containerId)
+    const app = new App({
+      target: document.getElementById(containerId)!,
+    })
+  },
+  unmount(containerId: string) {
+    // Implement unmount logic if necessary
+    console.log('microfrontend2 (svelte): unmount container not implemented', containerId)
+  }
+}

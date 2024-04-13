@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules
 dist
+microfrontend1
 dist-ssr
 *.local
 

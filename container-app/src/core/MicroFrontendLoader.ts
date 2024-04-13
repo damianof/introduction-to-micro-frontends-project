@@ -11,18 +11,18 @@ import { useLoadScript } from '../utils'
  * and ensure micro-frontends adhere to the defined interface.
  */
 class MicroFrontendLoader {
-  async loadAndMount(url: string, containerId: string): Promise<void> {
+  async loadAndMount(moduleKey: string, url: string, containerId: string): Promise<void> {
+    console.log('url', url)
     const { loadScript } = useLoadScript()
     const wasLoaded = await loadScript(url)
 
     // Proceed to mount only if the script was loaded for the first time
     if (wasLoaded) {
-      // Extract the module name from the URL, assuming it's the segment before `/assets/index.js`
-      const moduleName = url.split('/').slice(-3, -2)[0]; // Extracts the segment before `/assets/index.js`
-      // console.log('moduleName', moduleName)
-      // console.log('containerId', containerId)
+      console.log('moduleKey', moduleKey)
+      console.log('containerId', containerId)
 
-      const microFrontend: MicroFrontend = (window as any)[moduleName]
+      const microFrontend: MicroFrontend = (window as any)[moduleKey]
+      console.log('microFrontend', microFrontend)
 
       if (microFrontend && microFrontend.mount) {
         await microFrontend.mount(containerId)

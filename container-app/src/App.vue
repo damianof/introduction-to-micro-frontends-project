@@ -3,10 +3,10 @@ import { config } from './config'
 import { useMicroFrontendLoader } from './core'
 const microFrontendLoader = useMicroFrontendLoader()
 
-const loadMicrofrontend = (key: string) => {
-  const url = config.appModules[key]
-  const containerId = `${key}-container`
-  microFrontendLoader.loadAndMount(url, containerId).catch(console.error)
+const loadMicrofrontend = (moduleKey: string) => {
+  const url = config.appModules[moduleKey]
+  const containerId = `${moduleKey}-container`
+  microFrontendLoader.loadAndMount(moduleKey, url, containerId).catch(console.error)
 }
 
 </script>

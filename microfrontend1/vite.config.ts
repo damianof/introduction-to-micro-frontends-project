@@ -13,7 +13,7 @@ export default defineConfig({
   },
   plugins: [react()],
   build: {
-    outDir: './reactApp',
+    outDir: './microfrontend1',
     cssCodeSplit: false,
     sourcemap: false,
     minify: false,

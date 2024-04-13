@@ -15,6 +15,7 @@ export default defineConfig({
     vue()
   ],
   build: {
+    outDir: './microfrontend3',
     cssCodeSplit: false,
     sourcemap: false,
     minify: false,

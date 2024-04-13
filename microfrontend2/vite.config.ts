@@ -13,7 +13,7 @@ export default defineConfig({
   },
   plugins: [svelte()],
   build: {
-    outDir: './svelteApp',
+    outDir: './microfrontend2',
     cssCodeSplit: false,
     sourcemap: false,
     minify: false,
