@@ -2,9 +2,6 @@ import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
 
-// comment this out:
-// createApp(App).mount('#app')
-
 /**
  * @description
  * Ensure each micro-frontend exposes the necessary methods (mount, unmount) globally 
@@ -25,5 +22,5 @@ window.microfrontend3 = {
       // Cleanup like removing event listeners, stopping timers, etc.
       container.innerHTML = ''  // Clean up the container
     }
-}
+  }
 }
