@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
-    "clean": "rm -rf microfrontend3"
+    "clean": "rm -rf microfrontend3",
+    "build-and-run": "npm run build; npm run dev"
   },
   "dependencies": {
     "vue": "^3.4.21"

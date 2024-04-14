@@ -7,11 +7,13 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "build-and-run": "npm run build; npm run dev"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^3.0.2",
     "@tsconfig/svelte": "^5.0.2",
+    "@types/node": "^20.12.7",
     "svelte": "^4.2.12",
     "svelte-check": "^3.6.7",
     "tslib": "^2.6.2",

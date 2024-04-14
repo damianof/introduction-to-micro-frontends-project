@@ -3,13 +3,6 @@ import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 
-// comment this block out:
-/*ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)*/
-
 /**
  * @description
  * Ensure each micro-frontend exposes the necessary methods (mount, unmount) globally 

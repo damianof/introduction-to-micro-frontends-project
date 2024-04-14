@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
+import path from 'path'
 
 // This is a module app (to be consumed by the host app)
 // This microfrontend uses the Svelte framework
@@ -18,6 +19,7 @@ export default defineConfig({
     sourcemap: false,
     minify: false,
     rollupOptions: {
+      input: path.resolve(__dirname, `src/index.ts`),
       output: {
         entryFileNames: `assets/[name].js`,
         chunkFileNames: `assets/[name].js`,

@@ -1,12 +1,6 @@
 import './app.css'
 import App from './App.svelte'
 
-// comment this out:
-// const app = new App({
-//   target: document.getElementById('app')!,
-// })
-// export default app
-
 /**
  * @description
  * Ensure each micro-frontend exposes the necessary methods (mount, unmount) globally 

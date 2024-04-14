@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import path from 'path'
 
 // This is a module app (to be consumed by the host app)
 // This microfrontend uses the React framework
@@ -18,6 +19,7 @@ export default defineConfig({
     sourcemap: false,
     minify: false,
     rollupOptions: {
+      input: path.resolve(__dirname, `src/index.tsx`),
       output: {
         entryFileNames: `assets/[name].js`,
         chunkFileNames: `assets/[name].js`,
