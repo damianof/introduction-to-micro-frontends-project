@@ -20,5 +20,10 @@ window.microfrontend3 = {
   unmount(containerId: string) {
     // Implement unmount logic if necessary
     console.log('microfrontend3 (vue): unmount not implemented', containerId)
-  }
+    const container = document.getElementById(containerId)
+    if (container) {
+      // Cleanup like removing event listeners, stopping timers, etc.
+      container.innerHTML = ''  // Clean up the container
+    }
+}
 }

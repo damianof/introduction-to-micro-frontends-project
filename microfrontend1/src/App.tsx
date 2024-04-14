@@ -1,18 +1,12 @@
-import { useState } from 'react'
-import './App.css'
+// file: App.tsx
+
+import Counter from './components/Counter'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <h1>Microfrontend1</h1>
-      <span>(built with React)</span>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
+      <Counter/>
     </>
   )
 }

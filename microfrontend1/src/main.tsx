@@ -4,11 +4,11 @@ import App from './App.tsx'
 import './index.css'
 
 // comment this block out:
-// ReactDOM.createRoot(document.getElementById('root')!).render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-// )
+/*ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+)*/
 
 /**
  * @description
@@ -29,6 +29,11 @@ window.microfrontend1 = {
   unmount(containerId: string) {
     // Implement unmount logic if necessary
     console.log('microfrontend1 (react): unmount container not implemented', containerId)
-    // ReactDOM.unmountComponentAtNode(document.getElementById(containerId))
+    const container = document.getElementById(containerId)
+    if (container) {
+      // Cleanup like removing event listeners, stopping timers, ReactDOM.unmountComponentAtNode, etc.
+      // ReactDOM.unmountComponentAtNode(document.getElementById(containerId))
+      container.innerHTML = ''  // Clean up the container
+    }
   }
 }

@@ -21,6 +21,10 @@ class MicroFrontendLoader {
       console.log('moduleKey', moduleKey)
       console.log('containerId', containerId)
 
+      // within the main file in each micro-frontend module, we'll create an instance 
+      // of the MicroFrontend interface with the mount and unmount methods and save 
+      // a reference on the window object, i.e. window.microfrontend1, window.microfrontend2, etc. 
+      // Here, we retrieve the microfrontend instance and the invoke the mount method on it:
       const microFrontend: MicroFrontend = (window as any)[moduleKey]
       console.log('microFrontend', microFrontend)
 

@@ -3,10 +3,5 @@
 </script>
 
 <main>
-  <h1>Microfrontend2</h1>
-  <span>(built with Svelte)</span>
-
-  <div class="card">
-    <Counter />
-  </div>
+  <Counter />
 </main>

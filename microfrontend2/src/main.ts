@@ -24,5 +24,10 @@ window.microfrontend2 = {
   unmount(containerId: string) {
     // Implement unmount logic if necessary
     console.log('microfrontend2 (svelte): unmount container not implemented', containerId)
+    const container = document.getElementById(containerId)
+    if (container) {
+      // Cleanup like removing event listeners, stopping timers, etc.
+      container.innerHTML = ''  // Clean up the container
+    }
   }
 }
