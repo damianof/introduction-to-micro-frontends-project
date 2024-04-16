@@ -12,6 +12,7 @@ export default {
     'grid',
     'flex',
     'border',
+    'hover',
     {pattern: /bg-./},
     {pattern: /text-./},
     {pattern: /border-./},

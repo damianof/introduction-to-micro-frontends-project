@@ -1,0 +1,13 @@
+{
+  "name": "mock-api",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "npx json-server ./mock-data/db.json --port 3031"
+  },
+  "devDependencies": {
+    "json-server": "^1.0.0-alpha.23",
+    "typescript": "^5.2.2"
+  }
+}
