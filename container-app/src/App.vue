@@ -14,10 +14,10 @@ const loadMicrofrontend = (moduleKey: string) => {
 <template>
   <div class="container-app">
     <h1>Container app</h1>
-    <div>
-      <div id="microfrontend1-container"></div>
-      <div id="microfrontend2-container"></div>
-      <div id="microfrontend3-container"></div>
+    <div class="grid grid-cols-3 gap-2">
+      <div class="border-2 border-blue-500" id="microfrontend1-container"></div>
+      <div class="border-2 border-red-500" id="microfrontend2-container"></div>
+      <div class="border-2 border-green-500" id="microfrontend3-container"></div>
     </div>
     <div class="buttons">
       <button @click="loadMicrofrontend('microfrontend1')">Load Micro-Frontend 1</button>
