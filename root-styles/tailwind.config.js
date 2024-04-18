@@ -17,6 +17,8 @@ export default {
     {pattern: /text-./},
     {pattern: /border-./},
     {pattern: /grid-./},
+    {pattern: /col-span-./},
+    {pattern: /row-span-./},
     {pattern: /gap-./},
     {pattern: /space-./},
     {pattern: /animate-./},

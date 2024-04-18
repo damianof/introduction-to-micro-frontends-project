@@ -37,28 +37,31 @@ onMounted(async () => {
 <template>
   <div class="container-app">
     <h1>Container app</h1>
-    <div class="grid grid-cols-4 gap-2">
-      <div class="p-4 border-2 border-slate-500">
-        <Menu />
+
+    <div class="grid grid-rows-2 gap-2">
+
+      <!-- first row :-->
+      <div class="grid grid-cols-12 gap-2">
+        <div class="col-span-3 p-4 border-2 border-slate-500">
+          <Menu />
+        </div>
+        <div class="col-span-6 p-4 border-2 border-green-500">
+          <Spinner v-show="loadersState.microfrontend3" color="green"/>
+          <div id="microfrontend3-container"></div>
+        </div>
+        <div class="col-span-3 p-4 border-2 border-blue-500">
+          <Spinner v-show="loadersState.microfrontend1" color="blue"/>
+          <div id="microfrontend1-container"></div>
+        </div>
       </div>
-      <div class="p-4 border-2 border-blue-500">
-        <Spinner v-show="loadersState.microfrontend1" color="blue"/>
-        <div id="microfrontend1-container"></div>
-      </div>
+      
+      <!-- second row :-->
       <div class="p-4 border-2 border-red-500">
         <Spinner v-show="loadersState.microfrontend2" color="red"/>
         <div id="microfrontend2-container"></div>
       </div>
-      <div class="p-4 border-2 border-green-500">
-        <Spinner v-show="loadersState.microfrontend3" color="green"/>
-        <div id="microfrontend3-container"></div>
-      </div>
     </div>
-    <div class="buttons">
-      <button @click="loadMicrofrontend('microfrontend1')">Load Micro-Frontend 1</button>
-      <button @click="loadMicrofrontend('microfrontend2')">Load Micro-Frontend 2</button>
-      <button @click="loadMicrofrontend('microfrontend3')">Load Micro-Frontend 3</button>
-    </div>
+
   </div>
 </template>
 
