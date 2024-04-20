@@ -7,22 +7,7 @@
   }
 </script>
 
-<button class="svelte-button" on:click={onClick}>
+<button class="p-2 flex space-x-2 items-center rounded-md bg-slate-700" on:click={onClick}>
   <img src="http://localhost:5002/svelte.svg" alt="Svelte Logo" style="width:1rem" />
   <span>Microfrontend2: Counter {count}</span>
 </button>
-
-<style>
-.svelte-button {
-  display: flex;
-  align-items: center;
-  border-radius: 8px;
-  padding: 0.6em 1.2em;
-  background: #ffffff;
-  color: #000000;
-  cursor: pointer;
-}
-.svelte-button *:not(:first-child) {
-  margin-left: 0.25rem;
-}
-</style>

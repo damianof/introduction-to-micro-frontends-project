@@ -35,51 +35,27 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="container-app">
-    <h1>Container app</h1>
-
-    <div class="grid grid-rows-2 gap-2">
-
-      <!-- first row :-->
-      <div class="grid grid-cols-12 gap-2">
-        <div class="col-span-3 p-4 border-2 border-slate-500">
-          <Menu />
-        </div>
-        <div class="col-span-6 p-4 border-2 border-green-500">
-          <Spinner v-show="loadersState.microfrontend3" color="green"/>
-          <div id="microfrontend3-container"></div>
-        </div>
-        <div class="col-span-3 p-4 border-2 border-blue-500">
-          <Spinner v-show="loadersState.microfrontend1" color="blue"/>
-          <div id="microfrontend1-container"></div>
-        </div>
+  <div class="container-app grid grid-rows-4 gap-2 h-screen">
+    <!-- first row :-->
+    <div class="row-span-3 grid grid-cols-12 gap-2">
+      <div class="col-span-2">
+        <Menu />
       </div>
-      
-      <!-- second row :-->
-      <div class="p-4 border-2 border-red-500">
-        <Spinner v-show="loadersState.microfrontend2" color="red"/>
-        <div id="microfrontend2-container"></div>
+      <div class="col-span-8 border border-collapse border-green-500">
+        <Spinner v-show="loadersState.microfrontend3" color="green"/>
+        <div id="microfrontend3-container"></div>
+      </div>
+      <div class="col-span-2 border border-collapse border-blue-500">
+        <Spinner v-show="loadersState.microfrontend1" color="blue"/>
+        <div id="microfrontend1-container"></div>
       </div>
     </div>
-
+    
+    <!-- second row :-->
+    <div class="p-4 border-2 border-collapse border-red-500">
+      <Spinner v-show="loadersState.microfrontend2" color="red"/>
+      <div id="microfrontend2-container"></div>
+    </div>
   </div>
 </template>
 
-<style>
-.container-app {
-  padding: 1rem;
-}
-.container-app h1 {
-  margin: 0;
-}
-.container-app > *:not(:first-child) {
-  margin-top: 1rem;
-}
-.buttons {
-  display: flex;
-  align-items: center;
-}
-.buttons > *:not(:first-child) {
-  margin-left: 0.5rem;
-}
-</style>

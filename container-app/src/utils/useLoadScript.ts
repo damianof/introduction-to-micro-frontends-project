@@ -18,10 +18,13 @@ export const useLoadScript = () => {
         resolve(false);
         return;
       }
+
+      // append a random value to avoid caching
+      const nocacheUrl = url.indexOf('?') === -1 ? `${url}?${Math.random()}` : `${url}&${Math.random()}`
       
       const script = document.createElement('script')
       script.type = 'module'
-      script.src = url
+      script.src = nocacheUrl
       script.async = true
       script.onload = () => {
         // console.log(`Script loaded: ${url}`)

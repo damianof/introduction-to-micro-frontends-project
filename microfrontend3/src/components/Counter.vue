@@ -9,23 +9,8 @@ const onClick = () => {
 }
 </script>
 <template>
-  <button class="vue-button" @click="onClick">
+  <button class="p-2 flex space-x-2 items-center rounded-md bg-slate-700" @click="onClick">
     <img style="width:1rem" src="http://localhost:5003/vue.svg" class="logo vue" alt="Vue logo" />
     <span>microfrontend3: Counter{{ count }}</span>
   </button>
 </template>
-
-<style>
-.vue-button {
-  display: flex;
-  align-items: center;
-  border-radius: 8px;
-  padding: 0.6em 1.2em;
-  background: #ffffff;
-  color: #000000;
-  cursor: pointer;
-}
-.vue-button *:not(:first-child) {
-  margin-left: 0.25rem;
-}
-</style>
