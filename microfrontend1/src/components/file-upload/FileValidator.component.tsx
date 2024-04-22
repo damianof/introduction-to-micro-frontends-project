@@ -1,10 +1,10 @@
 // @ts-ignore
 import React from 'react'
 import FileValidatorRow from './FileValidatorRow.component'
-import { 
-  IFileInfo,
-  IFileValidatorItem
- } from './FileUploadTypes'
+import type {
+  IFileValidatorItem,
+  IFileInfo
+} from '@builtwithjavascript/file-input-validator'
 
 type IProps = {
   id: string
@@ -13,8 +13,7 @@ type IProps = {
   validatorItems: IFileValidatorItem[]
 }
 
-export default function FileValidatorComponent({ model, validatorItems, showOnlyErrors }: IProps) {
-
+export function FileValidatorComponent({ model, validatorItems, showOnlyErrors }: IProps) {
   let domEl = null
   if (model.displayName.length > 0) {
     domEl = (

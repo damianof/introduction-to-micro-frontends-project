@@ -1,4 +1,6 @@
-import { IFileValidatorItem } from './FileUploadTypes'
+import type { 
+  IFileValidatorItem
+} from '@builtwithjavascript/file-input-validator'
 
 type IProps = {
   index: number
@@ -10,6 +12,7 @@ export default function FileValidatorRow({ model, index, totItemsCount }: IProps
 
   const cssClass = () => {
     const { hasError } = model
+    // @ts-ignore
     const isFirst = index === 0
     const isLast = index === totItemsCount - 1
     const result = ['file-validator-item px-4 py-2 flex items-center text-white']

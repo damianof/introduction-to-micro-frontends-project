@@ -1,14 +1,14 @@
 // @ts-ignore
 import React from 'react'
 import { useState } from 'react'
-import FileInputComponent from './FileInput.component'
-import FileValidatorComponent from './FileValidator.component'
-import { FileValidator } from './FileInputValidator'
-import { 
-  IFileInfo, 
+import { FileInputComponent } from './FileInput.component'
+import { FileValidatorComponent } from './FileValidator.component'
+import { useFileInputValidator } from '@builtwithjavascript/file-input-validator'
+import type { 
+  IFileValidatorOptions,
   IFileValidatorItem,
-  IFileValidatorOptions
-} from './FileUploadTypes'
+  IFileInfo
+} from '@builtwithjavascript/file-input-validator'
 
 type IProps = {
   id: string
@@ -19,7 +19,7 @@ type IProps = {
 
 export function FileUploadComponent(props: IProps) {
   // init FileValidator
-  const fileValidator = new FileValidator(props.validatorOptions)
+  const fileValidator = useFileInputValidator(props.validatorOptions)
 
   // file info state
   const [fileInfo, setFileInfo] = useState<IFileInfo>({
@@ -35,13 +35,12 @@ export function FileUploadComponent(props: IProps) {
   // validator items state
   const [validatorItems, setValidatorItems] = useState<IFileValidatorItem[]>([])
 
-  const uploadDisabled = () => {
+  const uploadDisabled = React.useMemo(() => {
     if (!fileInfo.file) {
       return true
     }
-    console.log('uploadDisabled', validatorItems.some(x => x.hasError))
     return validatorItems.some(x => x.hasError)
-  }
+  }, [validatorItems])
 
   let _resetFunction: () => any
   const setResetFunction = (resetFunction: () => any) => {
@@ -73,8 +72,8 @@ export function FileUploadComponent(props: IProps) {
       />
 
       <button onClick={onUploadClick} 
-        disabled={uploadDisabled()}
-        className={`p-2 rounded-md ${ uploadDisabled() ? 'bg-gray-400' : 'bg-blue-500'} color-white`}>{ props.uploadLabel }</button>
+        disabled={uploadDisabled}
+        className={`p-2 rounded-md ${ uploadDisabled ? 'bg-gray-400' : 'bg-blue-500'} color-white`}>{ props.uploadLabel }</button>
     </div>
   )
 }

@@ -10,7 +10,7 @@ type IFileInputProps = {
   changed: (model: IFileInfo) => any
 }
 
-export default function FileInputComponent(props: IFileInputProps) {
+export function FileInputComponent(props: IFileInputProps) {
   // dom input reference:
   const inputFileRef = useRef(null)
 
