@@ -1,35 +1,37 @@
-import type { 
-  IFileValidatorItem
-} from '@builtwithjavascript/file-input-validator'
+// @ts-ignore
+import React from 'react'
+import { IFileValidatorItem } from '@builtwithjavascript/file-input-validator'
 
 type IProps = {
   index: number
   totItemsCount: number
+  roundedCorners?: boolean
   model: IFileValidatorItem
 }
 
-export default function FileValidatorRow({ model, index, totItemsCount }: IProps) {
+export function FileValidatorRowComponent({ model, index, totItemsCount, roundedCorners }: IProps) {
 
   const cssClass = () => {
     const { hasError } = model
-    // @ts-ignore
     const isFirst = index === 0
     const isLast = index === totItemsCount - 1
     const result = ['file-validator-item px-4 py-2 flex items-center text-white']
 
+    if (roundedCorners) {
+      if (isFirst) {
+        result.push('rounded-t-lg')
+      }
+      if (isLast) {
+        result.push('rounded-b-lg')
+      }
+
+      if (!isLast && totItemsCount > 1) {
+        result.push('border-b-0')
+      }
+    }
+
     // item success/error class
     result.push(hasError ? 'bg-red-600' : 'bg-green-600')
-
-    // if (isFirst) {
-    //   result.push('rounded-t-lg')
-    // }
-    // if (isLast) {
-    //   result.push('rounded-b-lg')
-    // }
-
-    if (!isLast && totItemsCount > 1) {
-      result.push('border-b-0')
-    }
 
     return result.join(' ').trim()
   }

@@ -1,20 +1,21 @@
 // @ts-ignore
-import React from 'react'
-import { useState } from 'react'
+import * as React from 'react'
+import { useState, useMemo } from 'react'
 import { FileInputComponent } from './FileInput.component'
 import { FileValidatorComponent } from './FileValidator.component'
 import { useFileInputValidator } from '@builtwithjavascript/file-input-validator'
 import type { 
-  IFileValidatorOptions,
+  IFileInfo, 
   IFileValidatorItem,
-  IFileInfo
+  IFileValidatorOptions
 } from '@builtwithjavascript/file-input-validator'
 
 type IProps = {
   id: string
   uploadLabel: string
   validatorOptions?: IFileValidatorOptions
-  onUploadClick: (model: IFileInfo) => any
+  showOnlyErrors?: boolean
+  onUploadClick: (model: IFileInfo) => Promise<any>
 }
 
 export function FileUploadComponent(props: IProps) {
@@ -35,7 +36,7 @@ export function FileUploadComponent(props: IProps) {
   // validator items state
   const [validatorItems, setValidatorItems] = useState<IFileValidatorItem[]>([])
 
-  const uploadDisabled = React.useMemo(() => {
+  const uploadDisabled = useMemo(() => {
     if (!fileInfo.file) {
       return true
     }
@@ -48,13 +49,13 @@ export function FileUploadComponent(props: IProps) {
   }
 
   const onFileInputChanged = (updatedModel: IFileInfo) => {
-    console.log('onFileInputChanged', updatedModel)
+    _resetFunction()
     setFileInfo(updatedModel)
     setValidatorItems(fileValidator.validateFile(fileInfo))
   }
 
-  const onUploadClick = () => {
-    props.onUploadClick(fileInfo)
+  const onUploadClick = async () => {
+    await props.onUploadClick(fileInfo)
   }
 
   return (
@@ -64,11 +65,12 @@ export function FileUploadComponent(props: IProps) {
         model={fileInfo} 
         changed={onFileInputChanged} 
         setResetFunction={setResetFunction} />
+      
       <FileValidatorComponent
         model={fileInfo}
         id={`${props.id}-validator`}
         validatorItems={validatorItems}
-        showOnlyErrors={true}
+        showOnlyErrors={props.showOnlyErrors}
       />
 
       <button onClick={onUploadClick} 

@@ -1,6 +1,6 @@
 // @ts-ignore
 import React, { useRef } from 'react'
-import { IFileInfo } from './FileUploadTypes'
+import type { IFileInfo } from '@builtwithjavascript/file-input-validator'
 
 type IFileInputProps = {
   id: string
@@ -32,12 +32,11 @@ export function FileInputComponent(props: IFileInputProps) {
 
   const onInputFileChange = (ev: any) => {
     const el: HTMLInputElement = ev.target
-    console.log('onInputFileChange', el.files)
     if (el.files && el.files.length > 0) {
       props.model.file = el.files.item(0)
     } else {
+      // no file selected
       props.model.file = null
-      console.warn('onInputFileChange: WARNING: no file selected')
     }
     props.model.fileSelected = !!props.model.file
     props.changed(props.model)

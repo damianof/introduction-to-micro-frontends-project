@@ -1,19 +1,21 @@
 // @ts-ignore
-import React from 'react'
-import FileValidatorRow from './FileValidatorRow.component'
-import type {
-  IFileValidatorItem,
-  IFileInfo
-} from '@builtwithjavascript/file-input-validator'
+import * as React from 'react'
+import { FileValidatorRowComponent } from './FileValidatorRow.component'
+import type { 
+  IFileInfo,
+  IFileValidatorItem
+ } from '@builtwithjavascript/file-input-validator'
 
 type IProps = {
   id: string
   model: IFileInfo
   showOnlyErrors?: boolean
+  roundedCorners?: boolean
   validatorItems: IFileValidatorItem[]
 }
 
-export function FileValidatorComponent({ model, validatorItems, showOnlyErrors }: IProps) {
+export function FileValidatorComponent({ model, validatorItems, showOnlyErrors, roundedCorners }: IProps) {
+
   let domEl = null
   if (model.displayName.length > 0) {
     domEl = (
@@ -30,13 +32,14 @@ export function FileValidatorComponent({ model, validatorItems, showOnlyErrors }
         }
         
         {!model.message && 
-          <div>
+          <div className="file-validator-inner">
             {validatorItems.filter(x => !showOnlyErrors || x.hasError).map((item, index) => {
               return (
-                <FileValidatorRow
+                <FileValidatorRowComponent
                   key={`file-validator-row-${index}`}
                   index={index}
                   totItemsCount={(validatorItems || []).length}
+                  roundedCorners={roundedCorners}
                   model={item}
                 />
               )
