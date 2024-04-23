@@ -43,13 +43,13 @@ export function FileUploadComponent(props: IProps) {
     return validatorItems.some(x => x.hasError)
   }, [validatorItems])
 
+  // @ts-ignore
   let _resetFunction: () => any
   const setResetFunction = (resetFunction: () => any) => {
     _resetFunction = resetFunction
   }
 
   const onFileInputChanged = (updatedModel: IFileInfo) => {
-    _resetFunction()
     setFileInfo(updatedModel)
     setValidatorItems(fileValidator.validateFile(fileInfo))
   }

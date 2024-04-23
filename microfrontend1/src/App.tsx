@@ -4,11 +4,11 @@ import React, { useState } from 'react'
 
 import Counter from './components/Counter'
 import { FileUploadComponent } from './components/file-upload/FileUpload.component'
-import { IFileInfo } from './components/file-upload/FileUploadTypes'
+import { IFileInfo } from '@builtwithjavascript/file-input-validator'
 
 function App() {
 
-  const onUploadClick = (model: IFileInfo) => {
+  const onUploadClick = (model: IFileInfo): any => {
     console.log('onUploadClick', model)
   }
 
