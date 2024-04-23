@@ -3,8 +3,8 @@
 import React, { useState } from 'react'
 
 import Counter from './components/Counter'
-import { FileUploadComponent } from './components/file-upload/FileUpload.component'
-import { IFileInfo } from '@builtwithjavascript/file-input-validator'
+import { FileUploadComponent } from '@builtwithjavascript/react-file-upload-tailwind'
+import type { IFileInfo } from '@builtwithjavascript/react-file-upload-tailwind'
 
 function App() {
 
