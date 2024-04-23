@@ -15,6 +15,7 @@ type IProps = {
   uploadLabel: string
   validatorOptions?: IFileValidatorOptions
   showOnlyErrors?: boolean
+  roundedCorners?: boolean
   onUploadClick: (model: IFileInfo) => Promise<any>
 }
 
@@ -45,6 +46,7 @@ export function FileUploadComponent(props: IProps) {
 
   // @ts-ignore
   let _resetFunction: () => any
+  // for now this is not used, but might need to expose to the consumer of FileUploadComponent
   const setResetFunction = (resetFunction: () => any) => {
     _resetFunction = resetFunction
   }
@@ -71,6 +73,7 @@ export function FileUploadComponent(props: IProps) {
         id={`${props.id}-validator`}
         validatorItems={validatorItems}
         showOnlyErrors={props.showOnlyErrors}
+        roundedCorners={props.roundedCorners}
       />
 
       <button onClick={onUploadClick} 

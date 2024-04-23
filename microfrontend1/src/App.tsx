@@ -19,6 +19,7 @@ function App() {
       <FileUploadComponent 
         id="file-input" 
         uploadLabel="Import File"
+        roundedCorners={false}
         onUploadClick={onUploadClick}/>
     </div>
   )
