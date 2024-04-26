@@ -14,6 +14,7 @@
     "vue": "^3.4.21"
   },
   "devDependencies": {
+    "@builtwithjavascript/vue-file-upload-tailwind": "^1.0.2",
     "@types/node": "^20.12.7",
     "@vitejs/plugin-vue": "^5.0.4",
     "typescript": "^5.2.2",
