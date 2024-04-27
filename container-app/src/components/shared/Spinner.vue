@@ -10,11 +10,7 @@ const props = withDefaults(defineProps<IProps>(), {
 
 const cssClass = computed(() => {
   const result = ['w-12 h-12 -m-1 rounded-full animate-spin border-y border-solid border-t-transparent shadow-md']
-
   result.push(`border-${props.color}-500`)
-
-  console.log('resul', result.join(' ').trim())
-
   return result.join(' ').trim()
 })
 </script>

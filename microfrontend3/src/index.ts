@@ -2,6 +2,14 @@ import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
 
+import type {
+  IPostbox
+} from '../../shared-types'
+
+// @ts-ignore
+let postbox: IPostbox = window.usePostbox()
+postbox.sub<{ action: string }>('test', (args) => console.log('vue: sub: ', args?.action))
+
 /**
  * @description
  * Ensure each micro-frontend exposes the necessary methods (mount, unmount) globally 

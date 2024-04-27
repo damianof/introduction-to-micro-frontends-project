@@ -3,5 +3,7 @@
 </script>
 
 <main>
-  <Counter />
+  <div class="flex flex-col space-y-2">
+    <Counter />
+  </div>
 </main>
