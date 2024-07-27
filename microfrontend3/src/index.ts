@@ -2,13 +2,9 @@ import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
 
-import type {
-  IPostbox
-} from '../../shared-types'
-
-// @ts-ignore
-let postbox: IPostbox = window.usePostbox()
-postbox.sub<{ action: string }>('test', (args) => console.log('vue: sub: ', args?.action))
+// retrieve our postbox instance from window using the usePostbox hook
+let postbox = window.usePostbox()
+postbox.sub('all-modules-loaded', (params) => console.log('vue: sub: ', params))
 
 /**
  * @description

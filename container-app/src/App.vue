@@ -4,10 +4,10 @@ import Spinner from './components/shared/Spinner.vue'
 //import Menu from './components/menu/Menu.vue'
 import { config } from './config'
 import { useMicroFrontendLoader } from './core'
-import { usePostbox } from './core'
 const microFrontendLoader = useMicroFrontendLoader()
 
-let postbox = usePostbox()
+// retrieve our postbox instance from window using the usePostbox hook
+const postbox = window.usePostbox()
 
 const loadersState: Record<string, boolean> = reactive({
   microfrontend1: true,
@@ -33,7 +33,8 @@ onMounted(async () => {
     loadMicrofrontend('microfrontend3')
   ])
 
-  postbox.pub('test', { action: 'all-loaded' })
+  // send a message
+  postbox.pub('all-modules-loaded', { action: 'ignore', params: 'some data etc' })
 })
 </script>
 

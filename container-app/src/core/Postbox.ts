@@ -7,7 +7,7 @@ import type {
 
 class Postbox implements IPostbox {
   pub<T = unknown>(topic: string, body: IPostboxMessageBody<T>) {
-    const message: IPostboxMessage = {
+    const message: IPostboxMessage<T> = {
       topic, 
       body
     }
@@ -23,14 +23,10 @@ class Postbox implements IPostbox {
   }
 }
 
-// @ts-ignore
-window.postbox = new Postbox()
-
-// @ts-ignore
+// we add a hook called usePostbox directly on the window object:
 window.usePostbox = (): IPostbox => {
-  // @ts-ignore
-  return window.postbox;
+  if (!window._postbox) {
+    window._postbox = new Postbox()
+  }
+  return window._postbox;
 }
-
-// @ts-ignore
-export const usePostbox: () => IPostbox = window.usePostbox
