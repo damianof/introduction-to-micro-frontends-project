@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 
 // This is the host app (container):
 
-const port = 5000
+const port = 4173
 
 // https://vitejs.dev/config/
 export default defineConfig({

@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "start": "npm run dev",
     "build-watch": "tsc && vite build --watch",
-    "watch-and-run": "concurrently \"npm run build-watch\" \"npm start\""
+    "watch-and-run": "concurrently \"npm run build-watch\" \"npm preview\""
   },
   "dependencies": {
     "vue": "^3.4.21"
