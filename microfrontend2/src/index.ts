@@ -3,8 +3,8 @@ import App from './App.svelte'
 
 /**
  * @description
- * Ensure each micro-frontend exposes the necessary methods (mount, unmount) globally 
- * to be compatible with the loader. 
+ * Ensure each micro-frontend exposes the necessary methods (mount, unmount) globally
+ * to be compatible with the loader.
  * This can be done within the entry point of each micro-frontend.
  */
 // @ts-ignore
@@ -21,7 +21,7 @@ window.microfrontend2 = {
     const container = document.getElementById(containerId)
     if (container) {
       // Cleanup like removing event listeners, stopping timers, etc.
-      container.innerHTML = ''  // Clean up the container
+      container.innerHTML = '' // Clean up the container
     }
-  }
+  },
 }

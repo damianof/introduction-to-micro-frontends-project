@@ -12,7 +12,7 @@ const postbox = window.usePostbox()
 const loadersState: Record<string, boolean> = reactive({
   microfrontend1: true,
   microfrontend2: true,
-  microfrontend3: true
+  microfrontend3: true,
 })
 
 const loadMicrofrontend = async (moduleKey: string) => {
@@ -26,11 +26,21 @@ const loadMicrofrontend = async (moduleKey: string) => {
   }
 }
 
+const unloadMicrofrontend = (moduleKey: string) => {
+  try {
+    const containerId = `${moduleKey}-container`
+    microFrontendLoader.unmount(moduleKey, containerId)
+    loadersState[moduleKey] = true
+  } catch (e) {
+    console.error('loadMicrofrontend', e)
+  }
+}
+
 onMounted(async () => {
   await Promise.all([
     loadMicrofrontend('microfrontend1'),
     loadMicrofrontend('microfrontend2'),
-    loadMicrofrontend('microfrontend3')
+    loadMicrofrontend('microfrontend3'),
   ])
 
   // send a message
@@ -45,22 +55,32 @@ onMounted(async () => {
       <div class="col-span-2">
         <!-- <Menu /> -->
         Menu will go here
+
+        <div class="flex flex-col">
+          <button @click="unloadMicrofrontend('microfrontend1')">Test unload 1</button>
+          <button @click="unloadMicrofrontend('microfrontend2')">Test unload 2</button>
+          <button @click="unloadMicrofrontend('microfrontend3')">Test unload 3</button>
+          <br />
+
+          <button @click="loadMicrofrontend('microfrontend1')">Test load 1</button>
+          <button @click="loadMicrofrontend('microfrontend2')">Test load 2</button>
+          <button @click="loadMicrofrontend('microfrontend3')">Test load 3</button>
+        </div>
       </div>
       <div class="col-span-8 outline-dashed outline-1 outline-green-500">
-        <Spinner v-show="loadersState.microfrontend3" color="green"/>
+        <Spinner v-show="loadersState.microfrontend3" color="green" />
         <div id="microfrontend3-container"></div>
       </div>
       <div class="col-span-2 outline-dashed outline-1 outline-blue-500">
-        <Spinner v-show="loadersState.microfrontend1" color="blue"/>
+        <Spinner v-show="loadersState.microfrontend1" color="blue" />
         <div id="microfrontend1-container"></div>
       </div>
     </div>
-    
+
     <!-- second row: -->
     <div class="outline-dashed outline-1 outline-red-500 flex-grow">
-      <Spinner v-show="loadersState.microfrontend2" color="red"/>
+      <Spinner v-show="loadersState.microfrontend2" color="red" />
       <div id="microfrontend2-container"></div>
     </div>
   </div>
 </template>
-

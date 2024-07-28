@@ -6,14 +6,13 @@ import Counter from './components/Counter'
 //import type { IFileInfo } from '@builtwithjavascript/react-file-upload-tailwind'
 
 function App() {
-
   // const onUploadClick = (model: IFileInfo): any => {
   //   console.log('onUploadClick', model)
   // }
 
   return (
     <div className="flex flex-col space-y-2">
-      <Counter/>
+      <Counter />
 
       {/* <FileUploadComponent 
         id="file-input" 

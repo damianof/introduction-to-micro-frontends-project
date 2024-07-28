@@ -10,7 +10,7 @@
     "clean": "rm -rf microfrontend3",
     "start": "npm run dev",
     "build-watch": "vue-tsc && vite build --watch",
-    "watch-and-run": "concurrently \"npm run build-watch\" \"npm start\""
+    "watch-and-run": "concurrently \"npm start\" \"npm run build-watch\""
   },
   "dependencies": {
     "vue": "^3.4.21"

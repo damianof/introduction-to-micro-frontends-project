@@ -1,11 +1,11 @@
 <script setup lang="ts">
 //import { ref } from 'vue'
 import Counter from './components/Counter.vue'
-// import { FileUploadComponent, DefaultFileValidatorOptions } from '@builtwithjavascript/vue-file-upload-tailwind' 
-// import type { 
+// import { FileUploadComponent, DefaultFileValidatorOptions } from '@builtwithjavascript/vue-file-upload-tailwind'
+// import type {
 //   IFileInfo,
 //   IFileValidatorOptions
-// } from '@builtwithjavascript/vue-file-upload-tailwind' 
+// } from '@builtwithjavascript/vue-file-upload-tailwind'
 
 // const fileValidatorOptions: IFileValidatorOptions = {
 //   ...DefaultFileValidatorOptions,

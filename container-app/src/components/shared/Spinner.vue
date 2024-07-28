@@ -5,7 +5,7 @@ type IProps = {
 }
 
 const props = withDefaults(defineProps<IProps>(), {
-  color: 'blue'
+  color: 'blue',
 })
 
 const cssClass = computed(() => {

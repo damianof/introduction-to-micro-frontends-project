@@ -9,10 +9,9 @@ const port = 5004
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
-    port: port
+    port: port,
   },
-  plugins: [
-  ],
+  plugins: [],
   build: {
     cssCodeSplit: false,
     sourcemap: false,
@@ -22,8 +21,8 @@ export default defineConfig({
       output: {
         entryFileNames: `assets/[name].js`,
         chunkFileNames: `assets/[name].js`,
-        assetFileNames: `assets/[name].[ext]`
-      }
-    }
-  }
+        assetFileNames: `assets/[name].[ext]`,
+      },
+    },
+  },
 })

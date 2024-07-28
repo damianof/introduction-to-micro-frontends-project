@@ -10,11 +10,9 @@ const port = 5003
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
-    port: port
+    port: port,
   },
-  plugins: [
-    vue()
-  ],
+  plugins: [vue()],
   build: {
     outDir: './microfrontend3',
     cssCodeSplit: false,
@@ -25,8 +23,8 @@ export default defineConfig({
       output: {
         entryFileNames: `assets/[name].js`,
         chunkFileNames: `assets/[name].js`,
-        assetFileNames: `assets/[name].[ext]`
-      }
-    }
-  }
+        assetFileNames: `assets/[name].[ext]`,
+      },
+    },
+  },
 })
