@@ -1,0 +1,36 @@
+{
+  "name": "postbox",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf ./dist",
+    "build-types": "tsc --declaration --emitDeclarationOnly --outDir ./dist",
+    "build-lib": "vite build",
+    "build": "npm run clean && npm run build-lib && npm run build-types",
+    "test": "vitest run",
+    "test-watch": "vitest watch"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.3.4"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/types.d.ts",
+        "default": "./dist/postbox.es.js"
+      },
+      "require": {
+        "types": "./dist/types.d.ts",
+        "default": "./dist/postbox.umd.js"
+      }
+    }
+  },
+  "types": "./dist/types.d.ts",
+  "main": "./dist/postbox.umd.js",
+  "module": "./dist/postbox.es.js"
+}
