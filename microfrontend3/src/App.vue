@@ -24,6 +24,11 @@ import Counter from './components/Counter.vue'
 // const reset = () => {
 //   refFileUploadComp.value?.reset()
 // }
+
+// retrieve our postbox instance from window using the usePostbox hook
+const postbox = window.usePostbox()
+// subscribe to a topic
+postbox.sub('all-modules-loaded', (data) => console.log(`microfrontend3 (vue): received event`, data))
 </script>
 
 <template>

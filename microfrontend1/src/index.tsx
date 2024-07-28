@@ -1,7 +1,9 @@
+// file: microfrontend1/src/index.tsx
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+import 'postbox'
 import './index.css'
+import App from './App.tsx'
 
 /**
  * @description

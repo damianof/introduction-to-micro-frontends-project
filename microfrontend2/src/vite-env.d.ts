@@ -1,6 +1,6 @@
 /// <reference types="svelte" />
 /// <reference types="vite/client" />
-import { IPostbox } from '../../shared-types'
+import { IPostbox } from 'postbox'
 
 declare global {
   interface Window {

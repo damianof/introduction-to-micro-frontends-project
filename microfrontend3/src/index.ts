@@ -1,4 +1,6 @@
+// file: microfrontend3/src/index.ts
 import { createApp, CreateAppFunction, Component } from 'vue'
+import 'postbox'
 import './style.css'
 import App from './App.vue'
 let appInstance: ReturnType<CreateAppFunction<Component>>

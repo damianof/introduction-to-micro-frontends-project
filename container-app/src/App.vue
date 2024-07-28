@@ -44,7 +44,7 @@ onMounted(async () => {
   ])
 
   // send a message
-  postbox.pub('all-modules-loaded', { action: 'ignore', params: 'some data etc' })
+  await postbox.pub('all-modules-loaded', { action: 'none', params: 'some data etc' })
 })
 </script>
 

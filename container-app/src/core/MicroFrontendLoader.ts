@@ -12,7 +12,7 @@ import { useLoadScript } from '../utils'
  */
 class MicroFrontendLoader {
   async loadAndMount(moduleKey: string, url: string, containerId: string): Promise<void> {
-    console.log('MicroFrontendLoader: loadAndMount: url', url)
+    //console.log('MicroFrontendLoader: loadAndMount: url', url)
     const { loadScript } = useLoadScript()
     const wasLoaded = await loadScript(url, moduleKey)
 

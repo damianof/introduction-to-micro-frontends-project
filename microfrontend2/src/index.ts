@@ -1,3 +1,5 @@
+// file: microfrontend2/src/index.ts
+import 'postbox'
 import './app.css'
 import App from './App.svelte'
 
