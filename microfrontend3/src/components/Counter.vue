@@ -1,12 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-
 const count = ref(0)
-
-const onClick = () => {
-  count.value += 1
-  console.log('vue: counter onClick')
-}
+const onClick = () => count.value += 1
 </script>
 <template>
   <button class="p-2 flex space-x-2 items-center rounded-md bg-slate-700" @click="onClick">

@@ -12,14 +12,13 @@ import App from './App.svelte'
 // @ts-ignore
 window.microfrontend2 = {
   mount(containerId: string) {
-    console.log('microfrontend2 (svelte): mount', containerId)
     const app = new App({
       target: document.getElementById(containerId)!,
     })
   },
   unmount(containerId: string) {
     // Implement unmount logic if necessary
-    console.log('microfrontend2 (svelte): unmount container not implemented', containerId)
+    console.log('microfrontend2 (svelte): unmount not yet implemented', containerId)
     const container = document.getElementById(containerId)
     if (container) {
       // Cleanup like removing event listeners, stopping timers, etc.

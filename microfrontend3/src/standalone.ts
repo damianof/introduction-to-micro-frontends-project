@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import 'postbox'
 import './style.css'
 import '../../root-styles/dist/assets/style.css'
 import App from './App.vue'

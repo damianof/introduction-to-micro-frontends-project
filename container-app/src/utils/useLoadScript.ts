@@ -15,7 +15,6 @@ export const useLoadScript = () => {
       new Promise<boolean>((resolve, reject) => {
         // Check if the script has already been loaded
         if (loadedScripts.has(moduleKey)) {
-          console.log(`Script already loaded: ${moduleKey}: ${url}`)
           resolve(false)
           return
         }
@@ -29,7 +28,6 @@ export const useLoadScript = () => {
         script.src = nocacheUrl
         script.async = true
         script.onload = () => {
-          // console.log(`Script loaded: ${url}`)
           loadedScripts.add(moduleKey) // Add the moduleKey to the cache
           resolve(true)
         }

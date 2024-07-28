@@ -5,7 +5,6 @@ export default function Counter() {
   const [count, setCount] = useState(0)
 
   const onClick = () => {
-    console.log('react: counter onClick')
     setCount((count) => count + 1)
   }
 

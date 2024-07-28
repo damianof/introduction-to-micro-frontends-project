@@ -14,7 +14,6 @@ import App from './App.tsx'
 // @ts-ignore
 window.microfrontend1 = {
   mount(containerId: string) {
-    console.log('microfrontend1 (react): mount', containerId)
     ReactDOM.createRoot(document.getElementById(containerId)!).render(
       <React.StrictMode>
         <App />
@@ -23,7 +22,7 @@ window.microfrontend1 = {
   },
   unmount(containerId: string) {
     // Implement unmount logic if necessary
-    console.log('microfrontend1 (react): unmount container not implemented', containerId)
+    console.log('microfrontend1 (react): unmount not yet implemented', containerId)
     const container = document.getElementById(containerId)
     if (container) {
       // Cleanup like removing event listeners, stopping timers, ReactDOM.unmountComponentAtNode, etc.

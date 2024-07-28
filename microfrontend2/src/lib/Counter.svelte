@@ -2,7 +2,6 @@
   let count: number = 0
 
   const onClick = () => {
-    //console.log('svelte: counter onClick')
     count += 1
   }
 </script>

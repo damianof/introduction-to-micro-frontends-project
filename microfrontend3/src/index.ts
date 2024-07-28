@@ -14,20 +14,16 @@ let appInstance: ReturnType<CreateAppFunction<Component>>
 // @ts-ignore
 window.microfrontend3 = {
   mount(containerId: string) {
-    console.log('microfrontend3 (vue): mount', containerId)
     appInstance = createApp(App)
     appInstance.mount(`#${containerId}`)
   },
   unmount(containerId: string) {
     // Implement unmount logic if necessary
-    console.log('microfrontend3 (vue): unmount not implemented', containerId)
     if (appInstance) {
-      console.log('microfrontend3 (vue): unmount vue app instance')
       appInstance.unmount()
     }
     const container = document.getElementById(containerId)
     if (container) {
-      console.log('microfrontend3 (vue): unmount cleanup container', container.innerHTML)
       // Cleanup like removing event listeners, stopping timers, etc.
       container.innerHTML = '' // Clean up the container
     }
