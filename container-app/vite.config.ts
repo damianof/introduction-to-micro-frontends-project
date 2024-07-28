@@ -9,7 +9,7 @@ const port = 5000
 export default defineConfig({
   server: {
     port: port,
-    open: `http://localhost:${port}`
+    open: `http://localhost:${port}`,
   },
   plugins: [
     vue()
