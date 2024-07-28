@@ -1,4 +1,4 @@
-// file: introduction-to-micro-frontends-project/postbox/src/models.ts
+// file: introduction-to-micro-frontends-project/postbox/src/types.ts
 export interface IPostboxMessageBody<T = unknown> {
   action: string
   params?: T
