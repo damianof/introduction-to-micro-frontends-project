@@ -3,11 +3,30 @@ import { reactive, onMounted } from 'vue'
 import Spinner from './components/shared/Spinner.vue'
 //import Menu from './components/menu/Menu.vue'
 import { config } from './config'
+import { useDebounce } from '@builtwithjavascript/debounce'
 import { useMicroFrontendLoader } from './core'
 const microFrontendLoader = useMicroFrontendLoader()
 
 // retrieve our postbox instance from window using the usePostbox hook
 const postbox = window.usePostbox()
+
+const moduleKeys = ['microfrontend1', 'microfrontend2', 'microfrontend3']
+
+if (import.meta.hot) {
+  console.log('import.meta.hot', import.meta.hot)
+
+  // listen to module-change event fired by our custom "watch-builds-and-notify" vite plugin
+  const debouncedFn = useDebounce(async (data) => {
+    console.log('module file change detected:', data)
+    // react to the file change
+    const key = data.key
+    if (moduleKeys.indexOf(key) > -1) {
+      unloadMicrofrontend(key)
+      await loadMicrofrontend(key)
+    }
+  }, 1000)
+  import.meta.hot.on('module-change', debouncedFn)
+}
 
 const loadersState: Record<string, boolean> = reactive({
   microfrontend1: true,

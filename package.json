@@ -10,6 +10,6 @@
     "build-microfrontend2": "cd microfrontend2; npm run build",
     "build-microfrontend3": "cd microfrontend3; npm run build",
     "build-root-styles": "cd root-styles; npm run build",
-    "serve": "npm run build-all; pnpm --parallel --filter \"./**\" start"
+    "serve": "npm run build-all; pnpm --parallel --filter \"./**\" watch-and-run"
   }
 }
