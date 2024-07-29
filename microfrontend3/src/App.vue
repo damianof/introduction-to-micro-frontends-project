@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import Counter from './components/Counter.vue'
+import CoffeeByCountry from './components/coffee-data/CoffeeByCountry.vue'
 
 // retrieve our postbox instance from window using the usePostbox hook
 const postbox = window.usePostbox()
@@ -16,5 +17,6 @@ onMounted(() => {
 <template>
   <div class="flex flex-col space-y-2">
     <Counter />
+    <CoffeeByCountry />
   </div>
 </template>

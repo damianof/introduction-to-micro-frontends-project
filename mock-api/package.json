@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "npx json-server ./mock-data/db.json --port 3031"
+    "start": "npx json-server ./mock-data/db.json --port 3031",
+    "watch-and-run": "npm start"
   },
   "devDependencies": {
     "json-server": "^1.0.0-alpha.23",

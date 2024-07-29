@@ -13,3 +13,5 @@ export interface IPostbox {
   pub<T = unknown>(topic: string, body: IPostboxMessageBody<T>): any
   sub<T = unknown>(topic: string, handler: (params?: T) => any): any
 }
+
+export * from './types.data'

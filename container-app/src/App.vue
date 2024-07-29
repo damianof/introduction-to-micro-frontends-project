@@ -75,7 +75,7 @@ onMounted(async () => {
 <template>
   <div class="container-app grid grid-rows-12 gap-2" style="height: calc(100vh - 1rem)">
     <!-- first row: -->
-    <div class="row-span-8 grid grid-cols-12 gap-2 flex-grow">
+    <div class="row-span-8 grid grid-cols-12 gap-2">
       <div class="col-span-2">
         <Menu @action="onMenuAction" />
 
@@ -90,7 +90,7 @@ onMounted(async () => {
           <button @click="loadMicrofrontend('microfrontend3')">Test load 3</button>
         </div>
       </div>
-      <div class="col-span-7 outline-dashed outline-1 outline-green-500">
+      <div class="col-span-7 outline-dashed outline-1 outline-green-500 overflow-hidden">
         <Spinner v-show="loadersState.microfrontend3" color="green" />
         <div id="microfrontend3-container"></div>
       </div>
