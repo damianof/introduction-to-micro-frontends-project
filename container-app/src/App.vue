@@ -10,24 +10,6 @@ const microFrontendLoader = useMicroFrontendLoader()
 // retrieve our postbox instance from window using the usePostbox hook
 const postbox = window.usePostbox()
 
-const moduleKeys = ['microfrontend1', 'microfrontend2', 'microfrontend3']
-
-if (import.meta.hot) {
-  console.log('import.meta.hot', import.meta.hot)
-
-  // listen to module-change event fired by our custom "watch-builds-and-notify" vite plugin
-  const debouncedFn = useDebounce(async (data) => {
-    console.log('module file change detected:', data)
-    // react to the file change
-    const key = data.key
-    if (moduleKeys.indexOf(key) > -1) {
-      unloadMicrofrontend(key)
-      await loadMicrofrontend(key)
-    }
-  }, 1000)
-  import.meta.hot.on('module-change', debouncedFn)
-}
-
 const loadersState: Record<string, boolean> = reactive({
   microfrontend1: true,
   microfrontend2: true,
@@ -56,6 +38,24 @@ const unloadMicrofrontend = (moduleKey: string) => {
 }
 
 onMounted(async () => {
+  // begin: code block will only be included during development, not build
+  if (import.meta.hot) {
+    console.log('import.meta.hot', import.meta.hot)
+    const moduleKeys = ['microfrontend1', 'microfrontend2', 'microfrontend3']
+    // listen to module-change event fired by our custom "watch-builds-and-notify" vite plugin
+    const debouncedFn = useDebounce(async (data) => {
+      console.log('module file change detected:', data)
+      // react to the file change
+      const key = data.key
+      if (moduleKeys.indexOf(key) > -1) {
+        unloadMicrofrontend(key)
+        await loadMicrofrontend(key)
+      }
+    }, 1000)
+    import.meta.hot.on('module-change', debouncedFn)
+  }
+  // end
+
   await Promise.all([
     loadMicrofrontend('microfrontend1'),
     loadMicrofrontend('microfrontend2'),

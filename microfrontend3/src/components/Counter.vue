@@ -6,6 +6,6 @@ const onClick = () => (count.value += 1)
 <template>
   <button class="p-2 flex space-x-2 items-center rounded-md bg-slate-700" @click="onClick">
     <img style="width: 1rem" src="http://localhost:5003/vue.svg" class="logo vue" alt="Vue logo" />
-    <span>microfrontend3: Counter{{ count }}</span>
+    <span>Microfrontend3: Count {{ count }}</span>
   </button>
 </template>
