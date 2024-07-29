@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { reactive, onMounted } from 'vue'
 import Spinner from './components/shared/Spinner.vue'
-//import Menu from './components/menu/Menu.vue'
+import Menu from './components/menu/Menu.vue'
 import { config } from './config'
+import { IEventAction } from './types'
 import { useDebounce } from '@builtwithjavascript/debounce'
 import { useMicroFrontendLoader } from './core'
 const microFrontendLoader = useMicroFrontendLoader()
@@ -37,6 +38,10 @@ const unloadMicrofrontend = (moduleKey: string) => {
   }
 }
 
+const onMenuAction = (actionInfo: IEventAction) => {
+  console.log('onMenuAction', actionInfo)
+}
+
 onMounted(async () => {
   // begin: code block will only be included during development, not build
   if (import.meta.hot) {
@@ -68,14 +73,13 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="container-app grid grid-rows-4 gap-2" style="height: calc(100vh - 1rem)">
+  <div class="container-app grid grid-rows-12 gap-2" style="height: calc(100vh - 1rem)">
     <!-- first row: -->
-    <div class="row-span-3 grid grid-cols-12 gap-2 flex-grow">
+    <div class="row-span-8 grid grid-cols-12 gap-2 flex-grow">
       <div class="col-span-2">
-        <!-- <Menu /> -->
-        Menu will go here
+        <Menu @action="onMenuAction" />
 
-        <div class="flex flex-col">
+        <div v-show="false" class="flex flex-col">
           <button @click="unloadMicrofrontend('microfrontend1')">Test unload 1</button>
           <button @click="unloadMicrofrontend('microfrontend2')">Test unload 2</button>
           <button @click="unloadMicrofrontend('microfrontend3')">Test unload 3</button>
@@ -86,18 +90,18 @@ onMounted(async () => {
           <button @click="loadMicrofrontend('microfrontend3')">Test load 3</button>
         </div>
       </div>
-      <div class="col-span-8 outline-dashed outline-1 outline-green-500">
+      <div class="col-span-7 outline-dashed outline-1 outline-green-500">
         <Spinner v-show="loadersState.microfrontend3" color="green" />
         <div id="microfrontend3-container"></div>
       </div>
-      <div class="col-span-2 outline-dashed outline-1 outline-blue-500">
+      <div class="col-span-3 outline-dashed outline-1 outline-blue-500">
         <Spinner v-show="loadersState.microfrontend1" color="blue" />
         <div id="microfrontend1-container"></div>
       </div>
     </div>
 
     <!-- second row: -->
-    <div class="outline-dashed outline-1 outline-red-500 flex-grow">
+    <div class="row-span-4 outline-dashed outline-1 outline-red-500 flex-grow">
       <Spinner v-show="loadersState.microfrontend2" color="red" />
       <div id="microfrontend2-container"></div>
     </div>
