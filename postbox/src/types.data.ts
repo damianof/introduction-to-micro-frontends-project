@@ -1,4 +1,3 @@
-
 type TYearValue = Record<number, number>
 
 export interface ICountryCoffeeData {

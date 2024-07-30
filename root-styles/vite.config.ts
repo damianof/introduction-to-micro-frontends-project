@@ -1,9 +1,8 @@
+// file: ntroduction-to-micro-frontends-project/root-styles/vite.config.ts
 import { defineConfig } from 'vite'
 import path from 'path'
 
-// This is a module app (to be consumed by the host app)
-// This microfrontend uses the Vue framework
-
+// This is the project that will serve the shared CSS style across all other microfrontends
 const port = 5004
 
 // https://vitejs.dev/config/

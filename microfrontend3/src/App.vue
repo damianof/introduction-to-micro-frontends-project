@@ -17,6 +17,6 @@ onMounted(() => {
 <template>
   <div class="flex flex-col space-y-2">
     <Counter />
-    <CoffeeByCountry />
+    <CoffeeByCountry v-show="true"/>
   </div>
 </template>

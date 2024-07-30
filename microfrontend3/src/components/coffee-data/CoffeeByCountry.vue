@@ -3,16 +3,16 @@ import { reactive, watchEffect, onMounted } from 'vue'
 import { useDebounce } from '@builtwithjavascript/debounce'
 import { ICountryCoffeeData } from 'postbox'
 
-const state = reactive<{ 
+const state = reactive<{
   allCountries: ICountryCoffeeData[]
   filteredCountries: ICountryCoffeeData[]
-  sortBy: string,
+  sortBy: string
   sortDir: 1 | -1
 }>({
   allCountries: [],
   filteredCountries: [],
   sortBy: 'country',
-  sortDir: 1
+  sortDir: 1,
 })
 
 const gridRowCss = 'grid grid-cols-3 gap-2'
@@ -26,7 +26,7 @@ const sortAndFilter = (items: ICountryCoffeeData[], propName: string, dir: numbe
       av = Number(av)
       bv = Number(bv)
     }
-    return av > bv ? (1 * dir) : (-1 * dir)
+    return av > bv ? 1 * dir : -1 * dir
   })
 }
 
@@ -53,11 +53,19 @@ onMounted(async () => {
   const fetchRequest = await fetch('http://localhost:3031/coffee')
   const response = await fetchRequest.json()
   console.log('response', response)
-  state.allCountries = ((response?.countries || []) as ICountryCoffeeData[]).map(x => {
+  state.allCountries = ((response?.countries || []) as ICountryCoffeeData[]).map((x) => {
     return {
       ...x,
-      _tot_imports: Number(Object.values(x.imports).reduce((a, v) => a + v, 0).toFixed(2)),
-      _tot_exports: Number(Object.values(x.exports).reduce((a, v) => a + v, 0).toFixed(2))
+      _tot_imports: Number(
+        Object.values(x.imports)
+          .reduce((a, v) => a + v, 0)
+          .toFixed(2),
+      ),
+      _tot_exports: Number(
+        Object.values(x.exports)
+          .reduce((a, v) => a + v, 0)
+          .toFixed(2),
+      ),
     }
   })
 })
@@ -72,9 +80,7 @@ onMounted(async () => {
         <span :class="headerCss" @click="headerClicked('_tot_imports')">Imports</span>
         <span :class="headerCss" @click="headerClicked('_tot_exports')">Exports</span>
       </div>
-      <div :class="gridRowCss" 
-        v-for="item in state.filteredCountries" 
-        :key="item.country">
+      <div :class="gridRowCss" v-for="item in state.filteredCountries" :key="item.country">
         <span>{{ item.country }}</span>
         <span>{{ item._tot_imports }}</span>
         <span>{{ item._tot_exports }}</span>

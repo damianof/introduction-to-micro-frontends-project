@@ -1,53 +1,25 @@
 /** @type {import('tailwindcss').Config} */
+
+/*
+      "../container-app/index.html",
+      "../microfrontend1/index.html",
+      "../microfrontend2/index.html",
+      "../microfrontend3/index.html",
+*/
+
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: {
+    relative: false,
+    files: [
+      "./index.html",
+      "./src/**/*.{js,ts,jsx,tsx,svelte,vue}",
+      "../container-app/index.html",
+      "../**/index.html",
+      "../**/*/src/**/*.{js,ts,jsx,tsx,svelte,vue}",
+    ],
+  },
   theme: {
     extend: {},
   },
-  plugins: [],
-  safelist: [
-    'grid',
-    'flex',
-    'border',
-    'hover',
-    'hover',
-    'outline',
-    {pattern: /flex-./},
-    {pattern: /items-./},
-    {pattern: /content-./},
-    {pattern: /justify-./},
-    {pattern: /outline-./, variants: ['hover']},
-    {pattern: /cursor-./},
-    {pattern: /overflow-./},
-    {pattern: /m-./},
-    {pattern: /mx-./},
-    {pattern: /my-./},
-    {pattern: /mt-./},
-    {pattern: /mb-./},
-    {pattern: /ml-./},
-    {pattern: /mr-./},
-    {pattern: /p-./},
-    {pattern: /px-./},
-    {pattern: /py-./},
-    {pattern: /bg-./, variants: ['hover']},
-    {pattern: /text-./, variants: ['hover']},
-    {pattern: /font-./, variants: ['hover']},
-    {pattern: /border-./, variants: ['hover']},
-    {pattern: /grid-./},
-    {pattern: /col-span-./},
-    {pattern: /row-span-./},
-    {pattern: /gap-./},
-    {pattern: /space-./},
-    {pattern: /animate-./},
-    {pattern: /shadow-./, variants: ['hover']},
-    {pattern: /w-./},
-    {pattern: /h-./},
-    {pattern: /rounded-./},
-    {pattern: /m-./},
-    {pattern: /-m-./},
-  ]
+  plugins: []
 }
-
