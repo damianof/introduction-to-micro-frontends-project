@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@builtwithjavascript/debounce": "^1.0.1",
+    "@builtwithjavascript/vue-file-upload": "file:../../builtwithjavascript/vue-file-upload",
     "@builtwithjavascript/vue-file-upload-tailwind": "^1.0.2",
     "@types/node": "^20.12.7",
     "@vitejs/plugin-vue": "^5.0.4",
