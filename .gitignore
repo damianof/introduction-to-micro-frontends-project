@@ -51,6 +51,8 @@ web_modules/
 # Optional npm cache directory
 .npm
 
+book-microfrontend-foundation/
+
 # Optional eslint cache
 .eslintcache
 
@@ -123,8 +125,10 @@ dist
 .vscode-test
 .vscode
 
-# yarn v2
-.yarn/cache
+# NX cache
+.nx/cache
+.nx/workspace-data
+
 .yarn/unplugged
 .yarn/build-state.yml
 .yarn/install-state.gz

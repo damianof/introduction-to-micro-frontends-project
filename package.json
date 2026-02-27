@@ -5,18 +5,13 @@
   "type": "module",
   "scripts": {
     "pretty": "prettier --config .prettierrc --loglevel warn -w \"./**/*.*{ts,vue,svelte,tsx,css,scss,html}\"",
-    "clean-all": "npm run clean-microfrontend1; npm run clean-microfrontend2; npm run clean-microfrontend3;",
-    "clean-microfrontend1": "cd microfrontend1; npm run clean",
-    "clean-microfrontend2": "cd microfrontend2; npm run clean",
-    "clean-microfrontend3": "cd microfrontend3; npm run clean",
-    "build-all": "npm run build-root-styles; npm run build-microfrontend1; npm run build-microfrontend2; npm run build-microfrontend3;",
-    "build-microfrontend1": "cd microfrontend1; npm run build",
-    "build-microfrontend2": "cd microfrontend2; npm run build",
-    "build-microfrontend3": "cd microfrontend3; npm run build",
-    "build-root-styles": "cd root-styles; npm run build",
-    "serve": "npm run build-all; npx pnpm --parallel --filter \"./**\" watch-and-run"
+    "build": "nx run-many -t build --parallel=4",
+    "serve": "nx run-many -t watch-and-run --parallel --output-style=stream",
+    "affected:build": "nx affected -t build",
+    "graph": "nx graph"
   },
   "devDependencies": {
+    "nx": "22.5.3",
     "pnpm": "^10.30.3"
   }
 }

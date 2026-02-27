@@ -1,0 +1,10 @@
+{
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "name": "postbox",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "outputs": ["{projectRoot}/dist"]
+    }
+  }
+}

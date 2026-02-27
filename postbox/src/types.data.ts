@@ -9,4 +9,6 @@ export interface ICountryCoffeeData {
   domestic_consumption: TYearValue
   disappearance: TYearValue
   retail_prices: TYearValue
+  _tot_imports?: number
+  _tot_exports?: number
 }

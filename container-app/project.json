@@ -1,0 +1,11 @@
+{
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "name": "container-app",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "outputs": ["{projectRoot}/dist"]
+    }
+  },
+  "implicitDependencies": ["postbox", "root-styles", "microfrontend1", "microfrontend2", "microfrontend3"]
+}
