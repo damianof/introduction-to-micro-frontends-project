@@ -1,6 +1,8 @@
 // file: introduction-to-micro-frontends-project/postbox/src/index.ts
 import type { IPostbox, IPostboxMessage, IPostboxMessageBody } from './types'
 
+export * from './types'
+
 class Postbox implements IPostbox {
   async pub<T = unknown>(topic: string, body: IPostboxMessageBody<T>) {
     const message: IPostboxMessage<T> = {

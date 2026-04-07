@@ -25,10 +25,15 @@ See [ARCHITECTURE.md](./ARCHITECTURE.md) for a full technical breakdown.
 
 ### Install dependencies
 
-Run `npm install` in each directory:
+Install from the **root** (NX monorepo — one install covers all projects):
 
 ```bash
 npm install
+```
+
+Then install each project's own dependencies:
+
+```bash
 cd postbox && npm install
 cd ../root-styles && npm install
 cd ../container-app && npm install

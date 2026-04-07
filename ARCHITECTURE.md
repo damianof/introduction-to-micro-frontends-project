@@ -138,6 +138,6 @@ The debounce (1 second, via `@builtwithjavascript/debounce`) prevents multiple r
 | `microfrontend2` | `microfrontend2/` | `assets/index.js` |
 | `microfrontend3` | `microfrontend3/` | `assets/index.js` |
 | `root-styles` | `dist/` | `assets/style.css` |
-| `postbox` | `dist/` | `postbox.es.js` / `postbox.umd.js` + `types.d.ts` |
+| `postbox` | `dist/` | `postbox.es.js` / `postbox.umd.js` + `index.d.ts` |
 
 All Vite builds share these settings: `cssCodeSplit: false`, `sourcemap: false`, `minify: false` — keeping bundles readable and predictable during development.

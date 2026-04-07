@@ -9,19 +9,21 @@
     "preview": "vite preview",
     "start": "npm run dev",
     "build-watch": "tsc && vite build --watch",
-    "watch-and-run": "npm start"
-  },
-  "dependencies": {
-    "vue": "^3.5.29"
+    "watch-and-run": "npm start",
+    "clean": "rm -rf node_modules dist package-lock.json",
+    "npm-clean": "npm run clean && npm i -D @builtwithjavascript/debounce @types/chokidar @vitejs/plugin-vue chokidar file:../postbox typescript vite vue-tsc && npm i vue"
   },
   "devDependencies": {
-    "@builtwithjavascript/debounce": "^1.0.5",
-    "@types/chokidar": "^2.1.7",
-    "@vitejs/plugin-vue": "^6.0.4",
+    "@builtwithjavascript/debounce": "^1.0.6",
+    "@types/chokidar": "^1.7.5",
+    "@vitejs/plugin-vue": "^6.0.5",
     "chokidar": "^5.0.0",
     "postbox": "file:../postbox",
-    "typescript": "^5.9.3",
-    "vite": "^7.3.1",
-    "vue-tsc": "^3.2.5"
+    "typescript": "^6.0.2",
+    "vite": "^8.0.6",
+    "vue-tsc": "^3.2.6"
+  },
+  "dependencies": {
+    "vue": "^3.5.32"
   }
 }

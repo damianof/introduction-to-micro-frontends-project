@@ -11,17 +11,18 @@
     "start": "npm run dev",
     "build-watch": "vite build --watch",
     "watch-and-run": "concurrently \"npm run build-watch\" \"npm start\"",
-    "clean": "rm -rf microfrontend2"
+    "clean": "rm -rf microfrontend2",
+    "npm-clean": "rm -rf node_modules dist package-lock.json && npm run clean && npm uninstall @sveltejs/vite-plugin-svelte @tsconfig/svelte @types/node postbox svelte svelte-check tslib typescript vite && npm i -D @sveltejs/vite-plugin-svelte @tsconfig/svelte @types/node file:../postbox svelte svelte-check tslib typescript vite"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^6.2.4",
+    "@sveltejs/vite-plugin-svelte": "^7.0.0",
     "@tsconfig/svelte": "^5.0.8",
-    "@types/node": "^25.3.2",
+    "@types/node": "^25.5.2",
     "postbox": "file:../postbox",
-    "svelte": "^5.53.5",
-    "svelte-check": "^4.4.4",
+    "svelte": "^5.55.1",
+    "svelte-check": "^4.4.6",
     "tslib": "^2.8.1",
-    "typescript": "^5.9.3",
-    "vite": "^7.3.1"
+    "typescript": "^6.0.2",
+    "vite": "^8.0.6"
   }
 }

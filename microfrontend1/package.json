@@ -10,20 +10,21 @@
     "start": "npm run dev",
     "build-watch": "tsc && vite build --watch",
     "watch-and-run": "concurrently \"npm run build-watch\" \"npm start\"",
-    "clean": "rm -rf microfrontend1"
+    "clean": "rm -rf microfrontend1",
+    "npm-clean": "rm -rf node_modules dist package-lock.json && npm run clean && npm uninstall react react-dom @builtwithjavascript/react-file-upload-tailwind @types/node @types/react @types/react-dom @vitejs/plugin-react postbox typescript vite && npm i -D @builtwithjavascript/react-file-upload-tailwind @types/node @types/react @types/react-dom @vitejs/plugin-react file:../postbox typescript vite && npm i react react-dom"
+  },
+  "devDependencies": {
+    "@builtwithjavascript/react-file-upload-tailwind": "^1.1.1",
+    "@types/node": "^25.5.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "postbox": "file:../postbox",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.6"
   },
   "dependencies": {
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
-  },
-  "devDependencies": {
-    "@builtwithjavascript/react-file-upload-tailwind": "^1.1.1",
-    "@types/node": "^25.3.2",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.4",
-    "postbox": "file:../postbox",
-    "typescript": "^5.9.3",
-    "vite": "^7.3.1"
   }
 }

@@ -7,13 +7,7 @@
     "build-types": "tsc --declaration --emitDeclarationOnly --outDir ./dist",
     "build-lib": "vite build",
     "build": "npm run clean && npm run build-lib && npm run build-types",
-    "test": "vitest run",
-    "test-watch": "vitest watch"
-  },
-  "devDependencies": {
-    "@types/node": "^25.3.2",
-    "typescript": "^5.9.3",
-    "vite": "^7.3.2"
+    "brute-clean": "rm -rf node_modules dist package-lock.json && npm run clean && npm uninstall @types/node typescript vite && npm i -D @types/node typescript vite"
   },
   "files": [
     "dist"
@@ -21,16 +15,21 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/types.d.ts",
+        "types": "./dist/index.d.ts",
         "default": "./dist/postbox.es.js"
       },
       "require": {
-        "types": "./dist/types.d.ts",
+        "types": "./dist/index.d.ts",
         "default": "./dist/postbox.umd.js"
       }
     }
   },
-  "types": "./dist/types.d.ts",
+  "types": "./dist/index.d.ts",
   "main": "./dist/postbox.umd.js",
-  "module": "./dist/postbox.es.js"
+  "module": "./dist/postbox.es.js",
+  "devDependencies": {
+    "@types/node": "^25.5.2",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.6"
+  }
 }

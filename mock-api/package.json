@@ -5,10 +5,12 @@
   "type": "module",
   "scripts": {
     "start": "npx json-server ./mock-data/db.json --port 3031",
-    "watch-and-run": "npm start"
+    "watch-and-run": "npm start",
+    "clean": "rm -rf node_modules dist package-lock.json",
+    "brute-clean": "npm run clean && npm uninstall json-server typescript && npm i -D json-server typescript"
   },
   "devDependencies": {
-    "json-server": "^1.0.0-beta.10",
-    "typescript": "^5.9.3"
+    "json-server": "^1.0.0-beta.15",
+    "typescript": "^6.0.2"
   }
 }
