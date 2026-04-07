@@ -12,7 +12,7 @@
     "build-watch": "vite build --watch",
     "watch-and-run": "concurrently \"npm run build-watch\" \"npm start\"",
     "clean": "rm -rf microfrontend2",
-    "npm-clean": "rm -rf node_modules dist package-lock.json && npm run clean && npm uninstall @sveltejs/vite-plugin-svelte @tsconfig/svelte @types/node postbox svelte svelte-check tslib typescript vite && npm i -D @sveltejs/vite-plugin-svelte @tsconfig/svelte @types/node file:../postbox svelte svelte-check tslib typescript vite"
+    "npm-clean": "npm run clean && rm -rf node_modules dist package-lock.json && npm uninstall @sveltejs/vite-plugin-svelte @tsconfig/svelte @types/node postbox svelte svelte-check tslib typescript vite && npm i -D @sveltejs/vite-plugin-svelte @tsconfig/svelte @types/node file:../postbox svelte svelte-check tslib typescript vite"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^7.0.0",

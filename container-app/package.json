@@ -10,8 +10,8 @@
     "start": "npm run dev",
     "build-watch": "tsc && vite build --watch",
     "watch-and-run": "npm start",
-    "clean": "rm -rf node_modules dist package-lock.json",
-    "npm-clean": "npm run clean && npm i -D @builtwithjavascript/debounce @types/chokidar @vitejs/plugin-vue chokidar file:../postbox typescript vite vue-tsc && npm i vue"
+    "clean": "rm -rf dist",
+    "npm-clean": "npm run clean && npm uninstall @builtwithjavascript/debounce @types/chokidar @vitejs/plugin-vue chokidar postbox typescript vite vue-tsc vue && npm i -D @builtwithjavascript/debounce @types/chokidar @vitejs/plugin-vue chokidar file:../postbox typescript vite vue-tsc && npm i vue"
   },
   "devDependencies": {
     "@builtwithjavascript/debounce": "^1.0.6",

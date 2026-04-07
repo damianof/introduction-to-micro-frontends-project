@@ -7,7 +7,7 @@
     "build-types": "tsc --declaration --emitDeclarationOnly --outDir ./dist",
     "build-lib": "vite build",
     "build": "npm run clean && npm run build-lib && npm run build-types",
-    "brute-clean": "rm -rf node_modules dist package-lock.json && npm run clean && npm uninstall @types/node typescript vite && npm i -D @types/node typescript vite"
+    "npm-clean": "npm run clean && rm -rf node_modules dist package-lock.json && npm run clean && npm uninstall @types/node typescript vite && npm i -D @types/node typescript vite"
   },
   "files": [
     "dist"

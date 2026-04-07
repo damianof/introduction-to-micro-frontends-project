@@ -6,8 +6,8 @@
   "scripts": {
     "start": "npx json-server ./mock-data/db.json --port 3031",
     "watch-and-run": "npm start",
-    "clean": "rm -rf node_modules dist package-lock.json",
-    "brute-clean": "npm run clean && npm uninstall json-server typescript && npm i -D json-server typescript"
+    "clean": "rm -rf dist",
+    "npm-clean": "npm run clean && rm -rf node_modules dist package-lock.json && npm uninstall json-server typescript && npm i -D json-server typescript"
   },
   "devDependencies": {
     "json-server": "^1.0.0-beta.15",

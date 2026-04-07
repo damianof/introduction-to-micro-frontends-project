@@ -11,7 +11,7 @@
     "build-watch": "vue-tsc && vite build --watch",
     "watch-and-run": "concurrently \"npm start\" \"npm run build-watch\"",
     "clean": "rm -rf microfrontend3",
-    "brute-clean": "rm -rf node_modules dist package-lock.json && npm run clean && npm uninstall vue @builtwithjavascript/debounce @builtwithjavascript/vue-file-upload-tailwind @types/node @vitejs/plugin-vue postbox typescript vite vue-tsc && npm i -D @builtwithjavascript/debounce @builtwithjavascript/vue-file-upload-tailwind @types/node @vitejs/plugin-vue file:../postbox typescript vite vue-tsc && npm i vue"
+    "npm-clean": "npm run clean && rm -rf node_modules dist package-lock.json && npm uninstall vue @builtwithjavascript/debounce @builtwithjavascript/vue-file-upload-tailwind @types/node @vitejs/plugin-vue postbox typescript vite vue-tsc && npm i -D @builtwithjavascript/debounce @builtwithjavascript/vue-file-upload-tailwind @types/node @vitejs/plugin-vue file:../postbox typescript vite vue-tsc && npm i vue"
   },
   "devDependencies": {
     "@builtwithjavascript/debounce": "^1.0.6",

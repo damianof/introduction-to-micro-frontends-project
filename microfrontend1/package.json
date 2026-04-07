@@ -11,7 +11,7 @@
     "build-watch": "tsc && vite build --watch",
     "watch-and-run": "concurrently \"npm run build-watch\" \"npm start\"",
     "clean": "rm -rf microfrontend1",
-    "npm-clean": "rm -rf node_modules dist package-lock.json && npm run clean && npm uninstall react react-dom @builtwithjavascript/react-file-upload-tailwind @types/node @types/react @types/react-dom @vitejs/plugin-react postbox typescript vite && npm i -D @builtwithjavascript/react-file-upload-tailwind @types/node @types/react @types/react-dom @vitejs/plugin-react file:../postbox typescript vite && npm i react react-dom"
+    "npm-clean": "npm run clean && rm -rf node_modules dist package-lock.json && npm uninstall react react-dom @builtwithjavascript/react-file-upload-tailwind @types/node @types/react @types/react-dom @vitejs/plugin-react postbox typescript vite && npm i -D @builtwithjavascript/react-file-upload-tailwind @types/node @types/react @types/react-dom @vitejs/plugin-react file:../postbox typescript vite && npm i react react-dom"
   },
   "devDependencies": {
     "@builtwithjavascript/react-file-upload-tailwind": "^1.1.1",
