@@ -8,6 +8,16 @@ let _onInstance: TWatcher = undefined as any
 const allowedKeys = ['microfrontend1', 'microfrontend2', 'microfrontend3', 'root-styles']
 const rx = /^..\/([^\/]+)+/g
 
+// Only react to the final output files that signal a completed rebuild.
+// Intermediate artifacts (SVGs, directory events, etc.) are intentionally ignored.
+// root-styles only emits a meaningful signal via style.css, not its companion index.js.
+const isRelevantPath = (path: string) => {
+  if (path.includes('root-styles')) {
+    return path.endsWith('assets/style.css')
+  }
+  return path.endsWith('assets/index.js')
+}
+
 export function WatchBuildsAndNotifyPlugin(): Plugin {
   return {
     name: 'watch-builds-and-notify',
@@ -25,6 +35,9 @@ export function WatchBuildsAndNotifyPlugin(): Plugin {
         )
 
         const handler = (event: any, path: string) => {
+          if (!isRelevantPath(path)) {
+            return
+          }
           const matches = path.match(rx)
           const key = `${(matches && matches[0]) || 'unknown'}`.replace('../', '')
           // send event to client

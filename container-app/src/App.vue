@@ -50,9 +50,11 @@ onMounted(async () => {
     // listen to module-change event fired by our custom "watch-builds-and-notify" vite plugin
     const debouncedFn = useDebounce(async (data) => {
       console.log('module file change detected:', data)
-      // react to the file change
+      // Only reload on 'change' (file modified = genuine rebuild).
+      // 'add' means the file was just created by the initial build;
+      // the retry mechanism in loadScript already handles that case.
       const key = data.key
-      if (moduleKeys.indexOf(key) > -1) {
+      if (moduleKeys.indexOf(key) > -1 && data.event === 'change') {
         unloadMicrofrontend(key)
         await loadMicrofrontend(key)
       }

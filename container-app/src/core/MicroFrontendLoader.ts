@@ -33,9 +33,13 @@ class MicroFrontendLoader {
   }
 
   async unmount(moduleKey: string, containerId: string): Promise<boolean> {
+    const { isLoaded, unloadScript } = useLoadScript()
+    if (!isLoaded(moduleKey)) {
+      // module was never successfully loaded — nothing to unmount
+      return false
+    }
     const microFrontend: MicroFrontend = (window as any)[moduleKey]
     if (microFrontend && microFrontend.unmount) {
-      const { unloadScript } = useLoadScript()
       await unloadScript(moduleKey)
       microFrontend.unmount(containerId)
       return true
